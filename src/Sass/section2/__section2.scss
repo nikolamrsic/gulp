@@ -1,0 +1,92 @@
+@use "./../Stuff/_mixins" as m;
+.section2 {
+  @include m.center($direction: column);
+  margin-top: 48px;
+  margin-bottom: 108px;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 28px;
+  }
+  p {
+    max-width: 750px;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+.section3 {
+ width: calc(100% - 25px);
+ max-width: 2100px;
+ margin-inline: auto;
+ margin-bottom: 35px;
+ margin-top: 35px;
+ @include m.center($direction:column);
+ gap: 25px;
+ .img-box{
+     width: 100%;
+     
+     flex: 1;
+     img{
+         width: 100%;
+        display: block;
+        border-radius: 15px;
+     }
+ }
+ .text-box{
+    flex: 1; 
+   align-self: stretch;
+   display: flex;
+   align-items: center;
+    div{
+        h3{
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+     }
+ }
+}
+
+@media (min-width:720px){
+    .section3{
+        flex-direction: row;
+        margin: auto;
+        width: 100%;
+        gap: 0;
+        &:nth-of-type(2n+1){
+            flex-direction: row-reverse;
+        }
+        .img-box{
+            img{
+                border-radius: 0px;
+            }
+        }
+        .text-box{
+          div{
+            width: calc(100% - 25px) ;
+            h3{
+                font-size: 35px;
+            }
+            p{
+                line-height: 25px;
+            }
+          }
+        }
+    }
+}
+
+@media (min-width:1324px) {
+     .text-box{
+       
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        box-sizing: border-bo;
+        div{
+           
+           width: calc(100% - 350px) !important;
+           
+         
+        }
+     }
+}

@@ -1,0 +1,106 @@
+.dawer{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  
+    .dawer__menu{
+        width: 0%;
+        min-width: 250px;
+        overflow: hidden;
+        height: 100%;
+        background-color: white;
+        padding: 15px 0;
+        animation: slide-left 0.3s ease-in-out ;
+        .dawer__menu__links{
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+        
+            .dawer__menu__links__item{
+                padding: 17px 15px;
+                border-bottom: solid 1px rgba(128, 128, 128, 0.2);
+                &:hover{
+                    border-bottom-color: rgba(128, 128, 128, 0.8);
+                    background-color: rgba(128, 128, 128, 0.3);
+                }
+            }
+        }
+    }
+    .dawer__backdrop{
+        background-color: rgba(0, 0, 0, 0.23);
+        width: 100%;
+        backdrop-filter: grayscale(1) blur(5px);
+        animation: slide-left 0.3s ease-in-out backwards;
+        animation-delay: 0.3s;
+    }
+
+    .dawer__header{
+        display: flex;
+        width: calc(100% - 25px);
+        margin-inline:auto;
+        margin-bottom: 15px;
+        justify-content: space-between;
+        align-items: center;
+        span{
+            font-size: 18px;
+        }
+        button{
+            padding: 7px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            border:solid 1px transparent;
+            border-radius: 50%;
+            background-color: transparent;
+           position: relative;
+            &:hover:after{
+                height: 100%;
+            }
+            &:after{
+                content: '';
+                width: 100%;
+                transition: 1s ease-in-out;
+                height: 0%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(77, 77, 183, 0.848);
+            
+            }
+            &:hover{
+                border-color: rgba(0, 0, 0, 0.399);
+                
+            }
+            &:hover>svg{
+             stroke: white;
+            }
+            background-color: transparent;
+            svg{
+                width: 24px;
+                transition: 1s ease-in-out;
+                pointer-events: none;
+                position: relative;
+                z-index: 5;
+                
+            }
+        }
+    }
+}
+
+.dawer--hide{
+    display: none;
+}
+
+@keyframes slide-left{
+    from{
+       opacity: 0%;
+
+    }
+    to{
+        opacity: 100%;
+    }
+}
